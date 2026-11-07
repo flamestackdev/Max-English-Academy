@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#ffffff" />
+  <script>var emb = self !== top || /embed=1/.test(location.search); if (emb) document.documentElement.classList.add('embed');
+  document.documentElement.dataset.theme = emb ? 'light' : (localStorage.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));</script>
+  <title>Max English Academy</title>
+  <link rel="stylesheet" href="/static/style47.css" />
+  <link rel="stylesheet" href="/static/ui.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" media="print" onload="this.media='all'" />
+</head>
+
+<body>
+  <a class="backhome" href="/" data-i18n="back_home">← Home</a>
+  <div class="topbar"><button type="button" data-dn data-s=".3"></button><div class="langsw" data-langsw></div></div>
+  <div id="toast"></div>
+
+  <div class="container">
+    <div class="form-box login">
+      <form id="login-form" action="#">
+        <h1 data-i18n="login">Login</h1>
+        <div class="input-box">
+          <input type="text" name="username" data-ph="username" placeholder="Username" autocomplete="username" required />
+          <i class="bx bxs-user"></i>
+        </div>
+        <div class="input-box">
+          <input type="password" name="password" data-ph="password" placeholder="Password" autocomplete="current-password" required />
+          <i class="bx bxs-lock-alt"></i>
+        </div>
+        <div class="forgot-link">
+          <a href="#" id="forgot" data-i18n="forgot">Forgot Password?</a>
+        </div>
+        <button type="submit" class="btn" data-i18n="login">Login</button>
+        <p data-i18n="or_login">or login with social platforms</p>
+        <div class="social-icons">
+          <a href="#" class="soon"><i class="bx bxl-google"></i></a>
+          <a href="#" class="soon"><i class="bx bxl-facebook"></i></a>
+          <a href="#" class="soon"><i class="bx bxl-github"></i></a>
+          <a href="#" class="soon"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </form>
+    </div>
+
+    <div class="form-box register">
+      <form id="reg-form" action="#">
+        <h1 data-i18n="reg_title">Registration</h1>
+        <div class="input-box">
+          <input type="text" name="username" data-ph="username" placeholder="Username" autocomplete="username" required />
+          <i class="bx bxs-user"></i>
+        </div>
+        <div class="input-box">
+          <input type="email" name="email" data-ph="email" placeholder="Email" autocomplete="email" required />
+          <i class="bx bxs-envelope"></i>
+        </div>
+        <div class="input-box">
+          <input type="password" name="password" data-ph="password" placeholder="Password" autocomplete="new-password" required />
+          <i class="bx bxs-lock-alt"></i>
+        </div>
+        <button type="submit" class="btn" data-i18n="register">Register</button>
+        <p data-i18n="or_reg">or register with social platforms</p>
+        <div class="social-icons">
+          <a href="#" class="soon"><i class="bx bxl-google"></i></a>
+          <a href="#" class="soon"><i class="bx bxl-facebook"></i></a>
+          <a href="#" class="soon"><i class="bx bxl-github"></i></a>
+          <a href="#" class="soon"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </form>
+    </div>
+
+    <div class="toggle-box">
+      <div class="toggle-panel toggle-left">
+        <h1 data-i18n="hello">Hello, Welcome!</h1>
+        <p data-i18n="no_acc">Don't have an account?</p>
+        <button class="btn register-btn" data-i18n="register">Register</button>
+      </div>
+
+      <div class="toggle-panel toggle-right">
+        <h1 data-i18n="welcome_back">Welcome Back!</h1>
+        <p data-i18n="have_acc">Already have an account?</p>
+        <button class="btn login-btn" data-i18n="login">Login</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/i18n.js"></script>
+  <script src="/static/ui.js"></script>
+  <script src="/static/script47.js"></script>
+  <script src="/static/auth.js"></script>
+</body>
+
+</html>

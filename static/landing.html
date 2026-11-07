@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#050b1c">
+  <meta name="description" content="Max English Academy — Open the world of English: live Zoom lessons, quizzes, Telegram bot. Русский · English · O'zbek · Qaraqalpaq.">
+  <meta property="og:title" content="Max English Academy">
+  <meta property="og:description" content="Live Zoom lessons, courses, quizzes and a Telegram bot. The first lesson is free.">
+  <meta property="og:type" content="website">
+  <title>Max English Academy</title>
+  <link rel="stylesheet" href="/static/landing.css">
+</head>
+<body id="top">
+  <header class="lp-bar" id="bar">
+    <a class="lp-logo" href="#top">Max <span>English</span></a>
+    <div class="lp-tools">
+      <div class="lp-lang" data-langsw role="group" aria-label="Language"></div>
+      <a class="lp-login" href="#join" data-i18n="login">Вход</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. INTRO: текст печатается при прокрутке вверх (свайп) -->
+    <section class="intro-track" id="introTrack" aria-label="Max English Academy">
+      <div class="intro-stage" id="introStage">
+        <div class="intro-content">
+          <p class="eyebrow" data-i18n="lp_eyebrow">Welcome to</p>
+          <div class="typing-shell" aria-live="polite">
+            <span class="bracket" aria-hidden="true">[</span>
+            <span id="typed"><span class="cursor" id="cursor"></span></span>
+            <span class="bracket" aria-hidden="true">]</span>
+          </div>
+          <div class="glow-line"></div>
+          <p class="intro-hint" id="introHint"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. HERO -->
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <p class="hero-kicker">Max English Academy</p>
+        <h1><span class="plain" data-i18n="lp_h1a">Открой мир английского</span> <span data-i18n="lp_h1b">вместе с нами.</span></h1>
+        <p class="hero-description" data-i18n="lp_desc"></p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#courses" data-i18n="lp_btn_courses">Наши курсы</a>
+          <a class="btn btn-secondary" href="#join" data-i18n="lp_btn_join">Записаться на обучение</a>
+        </div>
+        <div class="hero-note"><span class="status-dot"></span><span data-i18n="lp_note"></span></div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true" data-i18n="lp_scroll">Scroll to explore</div>
+    </section>
+
+    <!-- 3. КАРТОЧКИ КУРСОВ: вертикальный свайп двигает карточки по горизонтали -->
+    <section class="cards-track" id="courses" aria-labelledby="coursesTitle">
+      <div class="cards-stage">
+        <div class="cards-head">
+          <p class="hero-kicker" data-i18n="lp_prog">Our programs</p>
+          <h2 id="coursesTitle" data-i18n="lp_btn_courses">Наши курсы</h2>
+          <p class="sub" data-i18n="lp_courses_sub"></p>
+        </div>
+        <div class="rail" id="rail">
+          <article class="card c1"><div class="ico">📘</div><span class="lvl">A1 – C1</span><h3>Grammar</h3><p data-i18n="lp_c_grammar"></p><a href="#join" data-i18n="lp_c_cta">Start</a></article>
+          <article class="card c2"><div class="ico">🎧</div><span class="lvl">A1 – B2</span><h3>Listening</h3><p data-i18n="lp_c_listening"></p><a href="#join" data-i18n="lp_c_cta">Start</a></article>
+          <article class="card c3"><div class="ico">📖</div><span class="lvl">A2 – C1</span><h3>Reading</h3><p data-i18n="lp_c_reading"></p><a href="#join" data-i18n="lp_c_cta">Start</a></article>
+          <article class="card c4"><div class="ico">🎤</div><span class="lvl">A1 – C1 · Zoom</span><h3>Speaking</h3><p data-i18n="lp_c_speaking"></p><a href="#join" data-i18n="lp_c_cta">Start</a></article>
+          <article class="card c5"><div class="ico">✍️</div><span class="lvl">B1 – C1</span><h3>Writing</h3><p data-i18n="lp_c_writing"></p><a href="#join" data-i18n="lp_c_cta">Start</a></article>
+          <article class="card c6"><div class="ico">🔤</div><span class="lvl">A1 – C1</span><h3>Vocabulary</h3><p data-i18n="lp_c_vocabulary"></p><a href="#join" data-i18n="lp_c_cta">Start</a></article>
+        </div>
+        <div class="cards-progress" aria-hidden="true"><i id="cardsBar"></i></div>
+      </div>
+    </section>
+
+    <!-- 4. ПРЕИМУЩЕСТВА + ЦИФРЫ -->
+    <section class="why" id="why">
+      <p class="hero-kicker rv" data-i18n="lp_why">Why Max English</p>
+      <div class="stats rv" id="lpStats">
+        <div><b data-n="students">0</b><span data-i18n="lp_s_students"></span></div>
+        <div><b data-n="lessons">0</b><span data-i18n="lp_s_lessons"></span></div>
+        <div><b data-n="courses">0</b><span data-i18n="lp_s_courses"></span></div>
+        <div><b data-n="teachers">0</b><span data-i18n="lp_s_teachers"></span></div>
+      </div>
+      <div class="feats">
+        <div class="feat rv"><span>🎥</span><h3 data-i18n="lp_f1_t"></h3><p data-i18n="lp_f1_d"></p></div>
+        <div class="feat rv"><span>🤖</span><h3 data-i18n="lp_f2_t"></h3><p data-i18n="lp_f2_d"></p></div>
+        <div class="feat rv"><span>🏆</span><h3 data-i18n="lp_f3_t"></h3><p data-i18n="lp_f3_d"></p></div>
+        <div class="feat rv"><span>🌐</span><h3 data-i18n="lp_f4_t"></h3><p data-i18n="lp_f4_d"></p></div>
+      </div>
+    </section>
+
+    <!-- 5. РЕГИСТРАЦИЯ И ВХОД -->
+    <section class="join" id="join">
+      <h2 class="rv" data-i18n="lp_join_t">Готов начать?</h2>
+      <p class="sub rv" data-i18n="lp_join_d"></p>
+      <div class="auth-wrap rv" id="authWrap">
+        <iframe id="authFrame" src="/login?embed=1" title="Login / Register" loading="lazy"></iframe>
+      </div>
+      <div class="have rv" id="haveSession" hidden>
+        <p data-i18n="lp_have"></p>
+        <a class="btn btn-primary" href="/app" data-i18n="lp_open"></a>
+      </div>
+    </section>
+  </main>
+
+  <!-- 6. ПОДВАЛ: соцсети -->
+  <footer class="lp-foot" id="contact">
+    <p class="hero-kicker" data-i18n="lp_follow">Follow us</p>
+    <div class="socials" id="socials" aria-label="Social links"></div>
+    <div class="contacts" id="contacts"></div>
+    <p class="rights">© <span id="yr"></span> Max English Academy. <span data-i18n="lp_rights"></span></p>
+  </footer>
+
+  <script src="/static/i18n.js"></script>
+  <script src="/static/landing.js"></script>
+</body>
+</html>

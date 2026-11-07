@@ -1,0 +1,89 @@
+/* ============ Переключатель день / ночь (из Interactive_Toggle_Button.zip) ============
+   Рисуется в исходном размере 300×96 px и масштабируется через --s */
+.dn-btn { border: 0; background: none; padding: 6px; cursor: pointer; display: inline-block; flex: none; line-height: 0; border-radius: 30px; -webkit-tap-highlight-color: transparent;
+  width: calc(300px * var(--s, .3) + 12px); height: calc(96px * var(--s, .3) + 12px); }
+.dn-btn:focus-visible { outline: 2px solid var(--bd, #4f73d9); outline-offset: 2px; }
+.dn { position: relative; display: block; width: 300px; height: 96px; border-radius: 48px; transform: scale(var(--s, .3)); transform-origin: 0 0;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.35) inset, 0 10px 30px rgba(0,0,0,.3); }
+.dn-track { position: absolute; inset: 0; border-radius: 48px; overflow: hidden; background: linear-gradient(100deg, #a9d3e8 0%, #5e9fd6 100%); transition: background 1.1s ease; }
+.dn.night .dn-track { background: linear-gradient(100deg, #12123f 0%, #2c2f60 100%); }
+.dn-track::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,0) 40%); pointer-events: none; z-index: 5; }
+.dn-stars { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease; z-index: 1; }
+.dn.night .dn-stars { opacity: 1; }
+.dn-stars span { position: absolute; width: 2px; height: 2px; border-radius: 50%; background: #fff; }
+.dn-shoots { position: absolute; inset: 0; pointer-events: none; opacity: 0; overflow: hidden; z-index: 2; transition: opacity 1s ease; }
+.dn.night .dn-shoots { opacity: 1; }
+.dn-shoot { position: absolute; width: 3px; height: 3px; border-radius: 50%; background: #fff; opacity: 0; transform: rotate(-32deg); box-shadow: 0 0 5px rgba(255,255,255,.9); animation: dnShoot 3.5s linear infinite; }
+.dn-shoot::before { content: ""; position: absolute; top: 50%; right: 0; width: 55px; height: 1px; transform: translateY(-50%); background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.85)); }
+.dn-shoot.s1 { top: 25%; left: 72%; } .dn-shoot.s2 { top: 48%; left: 48%; animation-delay: -1.7s; } .dn-shoot.s3 { top: 18%; left: 30%; animation-delay: -2.8s; }
+@keyframes dnShoot { 0% { opacity: 0; transform: rotate(-32deg) translateX(0); } 5% { opacity: 1; } 18% { opacity: 0; transform: rotate(-32deg) translateX(-75px); } 100% { opacity: 0; transform: rotate(-32deg) translateX(-75px); } }
+.dn-moon { position: absolute; left: 12%; top: 10%; width: 9%; font-size: 48px; aspect-ratio: 1; transform: translateY(-50%) rotate(-130deg); opacity: .35; transition: opacity .45s ease; z-index: 2; }
+.dn.night .dn-moon { opacity: 1; }
+.dn-sun { position: absolute; right: 12%; top: 50%; width: 13%; aspect-ratio: 1; transform: translateY(-50%); border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff6c8, #ffe98a 60%, #f7d55c 100%); box-shadow: 0 0 14px 4px rgba(255,233,138,.8); transition: opacity .8s ease; z-index: 2; }
+.dn.night .dn-sun { opacity: 0; }
+.dn-birds { position: absolute; top: 26%; left: 0; width: 100%; height: 20%; opacity: .9; transition: opacity .8s ease; z-index: 2; }
+.dn.night .dn-birds { opacity: 0; }
+.dn-bird { position: absolute; top: 0; width: 16px; height: 9px; animation: dnFly 7s linear infinite; }
+.dn-bird.b2 { animation-delay: -2.3s; top: 35%; } .dn-bird.b3 { animation-delay: -4.6s; top: 8%; }
+.dn-wing { transform-origin: 7px 6px; animation: dnFlap .5s ease-in-out infinite; }
+.dn-bird.b2 .dn-wing { animation-delay: -.18s; } .dn-bird.b3 .dn-wing { animation-delay: -.32s; }
+@keyframes dnFly { from { left: 75%; } to { left: -15%; } }
+@keyframes dnFlap { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(.35); } }
+.dn-clouds { position: absolute; left: 0; right: 0; bottom: -4%; height: 48%; overflow: hidden; pointer-events: none; z-index: 3; }
+.dn-cloud-track { position: absolute; left: 0; bottom: 0; width: 100%; height: 100%; display: flex; flex-wrap: nowrap; animation: dnCloud 16s linear infinite; }
+.dn-cloud-track img { flex: 0 0 50%; width: 55%; height: 100%; display: block; object-fit: contain; object-position: center bottom; pointer-events: none; user-select: none;
+  -webkit-user-drag: none; transform: scale(1.12); margin: 0 -2.5%; }
+@keyframes dnCloud { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.dn-knob { position: absolute; top: 8%; left: 2.5%; width: 27%; aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(circle at 32% 30%, #ffffff, #fdfdfd 55%, #f4f4f4 100%); box-shadow: 0 0 20px 6px rgba(255,255,255,.05), 0 0 26px 10px rgba(255,244,190,.55);
+  transition: left .65s cubic-bezier(.65, -.1, .25, 1.15), box-shadow 1.1s ease; z-index: 6; }
+.dn.night .dn-knob { box-shadow: 0 0 18px 6px rgba(255,255,255,.9), 0 0 50px 16px rgba(160,190,255,.55); }
+.dn.on .dn-knob { left: 70.5%; }
+@media (prefers-reduced-motion: reduce) { .dn-cloud-track, .dn-bird, .dn-wing, .dn-shoot { animation: none; } }
+
+/* ============ Кнопка выхода (из Logout_Button_Animation.zip) ============ */
+.logoutButton {
+  --figure-duration: 100ms; --transform-figure: none; --walking-duration: 100ms; --transform-arm1: none; --transform-wrist1: none; --transform-arm2: none;
+  --transform-wrist2: none; --transform-leg1: none; --transform-calf1: none; --transform-leg2: none; --transform-calf2: none;
+  background: none; border: 0; color: #f4f7ff; cursor: pointer; display: block; font-family: inherit; font-size: 14px; font-weight: 500; height: 40px; margin: 0;
+  outline: none; padding: 0 0 0 20px; perspective: 100px; position: relative; text-align: left; width: 130px; -webkit-tap-highlight-color: transparent;
+}
+.logoutButton:focus-visible { outline: 2px solid var(--b, #7494ec); outline-offset: 3px; border-radius: 6px; }
+.logoutButton::before { background-color: #1f2335; border-radius: 5px; content: ""; display: block; height: 100%; left: 0; position: absolute; top: 0; transform: none; transition: transform 50ms ease; width: 100%; z-index: 2; }
+.logoutButton:hover .door { transform: rotateY(20deg); }
+.logoutButton:active::before { transform: scale(0.96); }
+.logoutButton:active .door { transform: rotateY(28deg); }
+.logoutButton.clicked::before { transform: none; }
+.logoutButton.clicked .door { transform: rotateY(35deg); }
+.logoutButton.door-slammed .door { transform: none; transition: transform 100ms ease-in 250ms; }
+.logoutButton.falling { animation: loShake 200ms linear; }
+.logoutButton.falling .bang { animation: loFlash 300ms linear; }
+.logoutButton.falling .figure { animation: loSpin 1000ms infinite linear; bottom: -1080px; opacity: 0; right: 1px; z-index: 1;
+  transition: transform calc(var(--figure-duration) * 1ms) linear, bottom calc(var(--figure-duration) * 1ms) cubic-bezier(0.7, 0.1, 1, 1) 100ms, opacity calc(var(--figure-duration) * 0.25ms) linear calc(var(--figure-duration) * 0.75ms); }
+.logoutButton .button-text { color: #f4f7ff; font-weight: 500; position: relative; z-index: 10; }
+.logoutButton svg { display: block; position: absolute; }
+.logoutButton .figure { bottom: 5px; fill: #4371f7; right: 18px; transform: var(--transform-figure); transition: transform calc(var(--figure-duration) * 1ms) cubic-bezier(0.2, 0.1, 0.8, 0.9); width: 30px; z-index: 4; }
+.logoutButton .door, .logoutButton .doorway { bottom: 4px; fill: #f4f7ff; right: 12px; width: 32px; }
+.logoutButton .door { transform: rotateY(20deg); transform-origin: 100% 50%; transform-style: preserve-3d; transition: transform 200ms ease; z-index: 5; }
+.logoutButton .door path { fill: #4371f7; stroke: #4371f7; stroke-width: 4; }
+.logoutButton .doorway { z-index: 3; }
+.logoutButton .bang { opacity: 0; }
+.logoutButton .arm1, .logoutButton .wrist1, .logoutButton .arm2, .logoutButton .wrist2, .logoutButton .leg1, .logoutButton .calf1, .logoutButton .leg2, .logoutButton .calf2 { transition: transform calc(var(--walking-duration) * 1ms) ease-in-out; }
+.logoutButton .arm1 { transform: var(--transform-arm1); transform-origin: 52% 45%; }
+.logoutButton .wrist1 { transform: var(--transform-wrist1); transform-origin: 59% 55%; }
+.logoutButton .arm2 { transform: var(--transform-arm2); transform-origin: 47% 43%; }
+.logoutButton .wrist2 { transform: var(--transform-wrist2); transform-origin: 35% 47%; }
+.logoutButton .leg1 { transform: var(--transform-leg1); transform-origin: 47% 64.5%; }
+.logoutButton .calf1 { transform: var(--transform-calf1); transform-origin: 55.5% 71.5%; }
+.logoutButton .leg2 { transform: var(--transform-leg2); transform-origin: 43% 63%; }
+.logoutButton .calf2 { transform: var(--transform-calf2); transform-origin: 41.5% 73%; }
+@keyframes loSpin { from { transform: rotate(0deg) scale(0.94); } to { transform: rotate(359deg) scale(0.94); } }
+@keyframes loShake { 0% { transform: rotate(-1deg); } 50% { transform: rotate(2deg); } 100% { transform: rotate(-1deg); } }
+@keyframes loFlash { 0% { opacity: 0.4; } 100% { opacity: 0; } }
+/* тёмная тема: светлая кнопка (вариант --light из оригинала) */
+html[data-theme="dark"] .logoutButton::before { background-color: #f4f7ff; }
+html[data-theme="dark"] .logoutButton .button-text { color: #1f2335; }
+html[data-theme="dark"] .logoutButton .door, html[data-theme="dark"] .logoutButton .doorway { fill: #1f2335; }
+html.logging-out { overflow: hidden; }
+.lo-wrap { display: flex; justify-content: center; padding: 14px 0 6px; }
